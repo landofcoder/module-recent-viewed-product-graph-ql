@@ -1,0 +1,26 @@
+
+type Query {
+    recentViewedProducts(
+        search: String @doc(description: "Query Search keyword.")
+        pageSize: Int = 5 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional.")
+        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1.")
+    ): RecentViewProducts @resolver(class: "\\Lof\\RecentViewedGraphQl\\Model\\Resolver\\RecentViewedProducts") @doc(description: "The Recent viewed products query for logged in customer.")
+}
+
+type Mutation {
+    recentViewedProducts(product_ids: [Int]!): RecentViewedOutput @resolver(class: "\\Lof\\RecentViewedGraphQl\\Model\\Resolver\\SubmitRecentViewedProducts") @doc(description: "Submit recent viewed products by ids for current logged in customer.")
+}
+
+type RecentViewProducts {
+    total_count: Int @doc(description: "The number of recent viewed products")
+    currentPage: Int @doc(description: "Current Page Number")
+    pageSize: Int @doc(description: "Page Size")
+    totalPages: Int @doc(description: "Total Pages")
+    items: [ProductInterface] @doc(description: "An array of recent viewed products that match the specified search criteria")
+}
+
+type RecentViewedOutput {
+    message: String @doc(description: "recent viewed return message")
+    total_count: Int @doc(description: "The number of recent viewed products")
+}
+

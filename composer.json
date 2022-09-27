@@ -1,0 +1,25 @@
+{
+    "name": "landofcoder/module-recent-viewed-products-graph-ql",
+    "description": "Magento 2 Recent Viewed Products Graph Ql",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Landofcoder",
+            "email": "landofcoder@gmail.com",
+            "homepage": "https://landofcoder.com",
+            "role": "Magento 2 Solution Provider"
+        }
+    ],
+    "minimum-stability": "dev",
+    "version": "1.0.0",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Lof\\RecentViewedGraphQl\\": ""
+        }
+    }
+}
